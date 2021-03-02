@@ -22,21 +22,32 @@ PrefabInstance:
     - target: {fileID: 9129061161070188586, guid: 078c34f0697a54baba4e95ebd7eba9c3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.10724635
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9129061161070188586, guid: 078c34f0697a54baba4e95ebd7eba9c3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.8018868
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9129061161070188586, guid: 078c34f0697a54baba4e95ebd7eba9c3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.011347434
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9129061161070188586, guid: 078c34f0697a54baba4e95ebd7eba9c3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 115744cd02fa94774ab67d965b3344b7,
+        type: 3}
     - target: {fileID: 9129061161070188587, guid: 078c34f0697a54baba4e95ebd7eba9c3,
         type: 3}
       propertyPath: m_Name
+      value: AlligatorLilypad
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129061161070188587, guid: 078c34f0697a54baba4e95ebd7eba9c3,
+        type: 3}
+      propertyPath: m_TagString
       value: AlligatorLilypad
       objectReference: {fileID: 0}
     - target: {fileID: 9129061161070188589, guid: 078c34f0697a54baba4e95ebd7eba9c3,

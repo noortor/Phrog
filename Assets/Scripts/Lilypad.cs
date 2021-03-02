@@ -26,7 +26,8 @@ public class Lilypad : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void flipLilypad() {
+    public virtual void flipLilypad() {
         // do a flip
+        Debug.Log("flipped lilypad");
     }
 }

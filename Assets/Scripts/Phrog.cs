@@ -5,17 +5,16 @@ using UnityEngine;
 public class Phrog : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool onLilypad;
     public float rotateSpeed;
     public float hopDistance;
     public float hopSpeed;
     private bool hopping;
-    private Lilypad[] lilypads;
+    private HashSet<GameObject> lilypads;
 
     void Start()
     {
         hopping = false;
-        onLilypad = true;
+        lilypads = new HashSet<GameObject>();
     }
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class Phrog : MonoBehaviour
             this.transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Horizontal") * rotateSpeed);
             if (Input.GetKeyDown("space"))
             {
-                print("space key was pressed");
+                flipLilypads();
             }
             if (Input.GetAxis("Vertical") > 0) {
                 hopping = true;
@@ -35,23 +34,32 @@ public class Phrog : MonoBehaviour
     }
 
     void flipLilypads() {
-
+        foreach (GameObject lilypadObject in lilypads) {
+            Lilypad lilypad = null;
+            if (lilypadObject.CompareTag("Lilypad")) {
+                lilypad = lilypadObject.GetComponent<Lilypad>();
+            } else if (lilypadObject.CompareTag("EggLilypad")) {
+                lilypad = lilypadObject.GetComponent<EggLilypad>();
+            } else if (lilypadObject.CompareTag("AlligatorLilypad")) {
+                lilypad = lilypadObject.GetComponent<AlligatorLilypad>();
+            }
+            lilypad.flipLilypad();
+        }
     }
-
-    // public void setOnLilypad(bool newOnLilypad) {
-    //     onLilypad = newOnLilypad;
-    // }
 
     private void OnTriggerEnter2D(Collider2D coll) {
         Debug.Log("on lilypad");
-		onLilypad = true;
+        lilypads.Add(coll.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D coll) {
         Debug.Log("off lilypad");
-        onLilypad = false;
+        lilypads.Remove(coll.gameObject);
     }
-    
+
+    private bool onPad() {
+        return lilypads.Count > 0;
+    }    
 
     IEnumerator Hop() {
         float elapsedTime = 0;
@@ -66,12 +74,12 @@ public class Phrog : MonoBehaviour
         }
         yield return new WaitForSeconds(0.2f);
         hopping = false;
-        if (!onLilypad) {
+        if (!onPad()) {
             Die();
         }
     }
 
-    void Die() {
+    public void Die() {
         //do a big ded
         Debug.Log("ded");
         Destroy(this.gameObject);

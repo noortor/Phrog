@@ -1,24 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AlligatorLilypad : Lilypad
+public class EggCounter : MonoBehaviour
 {
     // Start is called before the first frame update
+    public static int eggCount;
+    Text eggCountText;
     void Start()
     {
-
+        eggCount = 0;
+        eggCountText = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public override void flipLilypad() {
-        // do a flip
-        Debug.Log("flipped alligator lilypad");
-        GameObject.Find("Phrog").GetComponent<Phrog>().Die();
+        eggCountText.text = "Eggs: " + eggCount;
     }
 }

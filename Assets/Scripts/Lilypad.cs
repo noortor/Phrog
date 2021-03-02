@@ -19,9 +19,14 @@ public class Lilypad : MonoBehaviour
         // this.transform.position = new Vector3(lilypadPos.x + scrollSpeed, lilypadPos.y, lilypadPos.z);
     }
 
+
+
     void OnBecameInvisible()
     {
-        Debug.Log("desttoyed lilypad");
-        Destroy(this);
+        Destroy(this.gameObject);
+    }
+
+    void flipLilypad() {
+        // do a flip
     }
 }

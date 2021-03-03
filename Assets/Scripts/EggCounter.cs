@@ -18,7 +18,7 @@ public class EggCounter : MonoBehaviour
     void Update()
     {
         eggCountText.text = "Eggs: " + eggCount;
-        if (eggCount >= 3)
+        if (eggCount >= 5)
         {
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().WinGame();
         }

@@ -18,5 +18,10 @@ public class EggCounter : MonoBehaviour
     void Update()
     {
         eggCountText.text = "Eggs: " + eggCount;
+        if (eggCount >= 1)
+        {
+            GameObject.FindWithTag("GameController").GetComponent<GameManager>().WinGame();
+        }
     }
+
 }

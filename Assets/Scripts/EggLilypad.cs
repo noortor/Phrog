@@ -18,6 +18,12 @@ public class EggLilypad : Lilypad
 
     }
 
+    void OnBecameInvisible()
+    {
+        GameObject.FindWithTag("DataManager").GetComponent<GameDataManager>().data.eggsMissed ++;
+        Destroy(this.gameObject);
+    }
+
     public override void flipLilypad() {
         // do a flip
         Debug.Log("flipped egg lilypad");

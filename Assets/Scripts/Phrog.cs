@@ -83,6 +83,7 @@ public class Phrog : MonoBehaviour
         //do a big ded
         Debug.Log("ded");
         Destroy(this.gameObject);
+        GameObject.FindWithTag("GameController").GetComponent<GameManager>().LoseGame();
         //activate gameover screen
     }
 }

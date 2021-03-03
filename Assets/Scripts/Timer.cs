@@ -21,5 +21,9 @@ public class Timer : MonoBehaviour
             GameObject.Find("Phrog").GetComponent<Phrog>().Die();
         }
     }
+
+    public float getTimePassed() {
+        return startingTime - currentTime;
+    }
   
 }

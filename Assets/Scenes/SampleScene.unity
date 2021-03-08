@@ -1575,6 +1575,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5293607176462059964, guid: 066204c02b7a943cb87b2c5f9b11710e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338223523872525000, guid: 066204c02b7a943cb87b2c5f9b11710e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c295c21c96ac4027acb12b33434cf56,
+        type: 3}
+    - target: {fileID: 8338223523872525000, guid: 066204c02b7a943cb87b2c5f9b11710e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338223523872525000, guid: 066204c02b7a943cb87b2c5f9b11710e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338223523872525000, guid: 066204c02b7a943cb87b2c5f9b11710e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6901961
+      objectReference: {fileID: 0}
     - target: {fileID: 8338223523872525001, guid: 066204c02b7a943cb87b2c5f9b11710e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1633,12 +1659,12 @@ PrefabInstance:
     - target: {fileID: 8338223523872525001, guid: 066204c02b7a943cb87b2c5f9b11710e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 500
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8338223523872525001, guid: 066204c02b7a943cb87b2c5f9b11710e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 500
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8338223523872525003, guid: 066204c02b7a943cb87b2c5f9b11710e,
         type: 3}

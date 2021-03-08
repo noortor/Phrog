@@ -1,0 +1,1 @@
+{"eggsMissed":1,"timePassed":13.543354034423829}

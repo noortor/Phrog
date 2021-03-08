@@ -5,11 +5,21 @@ using UnityEngine;
 public class Phrog : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float rotateSpeed;
-    public float hopDistance;
-    public float hopSpeed;
+    [SerializeField]
+    [Tooltip("Speed at which the phrog rotates")]
+    private float rotateSpeed;
+    [SerializeField]
+    private float hopDistance;
+    [SerializeField]
+    private float hopSpeed;
     private bool hopping;
+    [SerializeField]
+    private float max_hop_dist;
+    [SerializeField]
+    private float min_hop_dist;
     private HashSet<GameObject> lilypads;
+    [SerializeField]
+    private GameObject ruler;
 
     void Start()
     {
@@ -26,9 +36,10 @@ public class Phrog : MonoBehaviour
             {
                 flipLilypads();
             }
-            if (Input.GetAxis("Vertical") > 0) {
+            if (Input.GetAxis("Vertical") > 0 && !hopping) {
+                Debug.Log("we made it");
                 hopping = true;
-                StartCoroutine(Hop());
+                StartCoroutine(jump_held());
             }
         }
     }
@@ -77,6 +88,27 @@ public class Phrog : MonoBehaviour
         if (!onPad()) {
             Die();
         }
+    }
+
+    IEnumerator jump_held()
+    {
+        
+        hopDistance = min_hop_dist;
+        while (Input.GetAxis("Vertical") != 0)
+        {
+            if(hopDistance < max_hop_dist)
+            {
+                hopDistance += 2;
+                Vector3 startPos = this.transform.position;
+                float xDist = hopDistance * Mathf.Cos(this.transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+                float yDist = hopDistance * Mathf.Sin(this.transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+                ruler.transform.position = new Vector3(startPos.x + xDist, startPos.y + yDist, 0);
+            }
+            
+            yield return null;
+
+        }
+        StartCoroutine(Hop());
     }
 
     public void Die() {

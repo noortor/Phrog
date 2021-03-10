@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Phrog : MonoBehaviour
 {
@@ -20,11 +21,12 @@ public class Phrog : MonoBehaviour
     private HashSet<GameObject> lilypads;
     [SerializeField]
     private GameObject ruler;
-
+    private Animator anim;
     void Start()
     {
         hopping = false;
         lilypads = new HashSet<GameObject>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -78,6 +80,7 @@ public class Phrog : MonoBehaviour
         float xDist = hopDistance * Mathf.Cos(this.transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
         float yDist = hopDistance * Mathf.Sin(this.transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
         Vector3 endPos = new Vector3(startPos.x + xDist, startPos.y + yDist, startPos.z);
+        anim.SetTrigger("jumping");
         while(Vector3.Distance(endPos, this.transform.position) > 0.1) {
             this.transform.position = Vector3.Lerp(startPos, endPos, elapsedTime * hopSpeed);
             elapsedTime += Time.deltaTime;

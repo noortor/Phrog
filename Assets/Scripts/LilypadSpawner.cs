@@ -43,7 +43,7 @@ public class LilypadSpawner : MonoBehaviour
         while (true)
         {
             Vector3 camPos = Camera.main.transform.position;
-            Vector3 spawnPos = new Vector3(camPos.x + 600f, Random.Range(camPos.y - spawnRange/2, camPos.y + spawnRange/2), lilypad.transform.position.z);
+            Vector3 spawnPos = new Vector3(camPos.x + 700f, Random.Range(camPos.y - spawnRange/2, camPos.y + spawnRange/2), lilypad.transform.position.z);
             InstantiateRandomLilypad(spawnPos);
             yield return new WaitForSeconds(1.5f);
         }
